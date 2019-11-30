@@ -2,8 +2,10 @@ package com.example.projetolistapaises
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     var listaPaises = ArrayList<String>();
@@ -24,6 +26,11 @@ class MainActivity : AppCompatActivity() {
 
         listViewPaises.adapter = this.arrayAdapter;
 
+        listViewPaises.setOnItemClickListener { parent, view, position, id ->
+            Toast.makeText(this,
+                listaPaises.get(position), Toast.LENGTH_SHORT).show();
+
+        }
 
     }
 
